@@ -7,7 +7,7 @@ import { NavItem } from "./nav-item";
 export function Navbar({ className, ...props }: ComponentProps<'nav'>) {
 
   return (
-    <nav {...props} className={clsx([className, "flex items-center justify-between w-full"])}>
+    <nav {...props} className={clsx([className, "flex-col md:flex-row flex items-center justify-between w-full"])}>
       <Logo />
 
       <div className="flex gap-8 items-center">

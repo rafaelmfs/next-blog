@@ -33,9 +33,9 @@ export function ThemeToggle() {
   }
 
   return (
-    <button className="cursor-pointer rounded-full bg-transparent hover:bg-zinc-900/20 dark:hover:bg-zinc-400/20 p-2 transition-colors text-zinc-900 dark:text-zinc-300" onClick={toggleTheme}>
+    <button className="flex items-center justify-center cursor-pointer rounded-full bg-transparent hover:bg-zinc-900/20 dark:hover:bg-zinc-400/20 p-2 transition-colors text-zinc-900 dark:text-zinc-300" onClick={toggleTheme}>
       {
-        isDark ? <Moon /> : <Sun />
+        isDark ? <Moon size={16} /> : <Sun size={16} />
       }
     </button>
   )

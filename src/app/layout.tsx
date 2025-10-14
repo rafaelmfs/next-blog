@@ -3,6 +3,8 @@ import { Chakra_Petch, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar/navbar";
 import { cookies } from "next/headers";
+import Image from "next/image";
+import gradient from "@/assets/gradient.png"
 
 const fontChackra = Chakra_Petch({
   weight: ['400', '700'],
@@ -33,9 +35,9 @@ export default async function RootLayout({
   return (
     <html lang="en" className={theme}>
       <body
-        className={`${fontChackra.variable} ${fontInter.variable} antialiased w-full h-screen bg-white`}
+        className={`${fontChackra.variable} ${fontInter.variable} antialiased w-full h-screen bg-white relative flex items-center flex-col`}
       >
-        <main className="w-full px-32 py-10">
+        <main className="w-full px-32 py-10 max-w-[1600px]">
           <Navbar />
           {children}
         </main>
