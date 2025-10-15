@@ -2,12 +2,13 @@ import type { CategoriesTypes } from "@/protocols/categories-protocol"
 import type { TagsTypes } from "@/protocols/tags-protocol"
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL
+const origin = process.env.NEXT_PUBLIC_ORIGIN
 
 export const getApiEndpoints = ({ isExternal }: { isExternal: boolean }) => {
   let baseUrl = apiUrl
 
-  if(!isExternal &&  typeof window !== undefined) {
-    baseUrl = `${window.location.origin}/api`
+  if (!isExternal && typeof window !== undefined) {
+    baseUrl = `${origin}/api`
   }
 
   return {
