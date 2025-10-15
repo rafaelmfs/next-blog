@@ -1,7 +1,7 @@
 import type { TagProtocol } from "@/protocols/tags-protocol";
 
 
-export const TAGS: TagProtocol[] = [
+export const tags: TagProtocol[] = [
   { slug: "tecnologia", name: "Tecnologia" },
   { slug: "programacao", name: "Programação" },
   { slug: "web", name: "Web" },
