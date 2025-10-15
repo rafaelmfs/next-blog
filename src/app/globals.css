@@ -32,7 +32,6 @@
   --font-inter: var(--font-inter);
 }
 
-
 .dark {
   --color-gray-400: #B0B0B0;
   --color-yellow-400: #FFDF70;
@@ -42,7 +41,7 @@
   --color-lavender-200: #B6AEFF33;
   --color-lavender-200-30: #B6AEFF4D;
   --color-sky-200: #53C2FF33;
-  --color-sky-400: #27C0E8;
+  --color-sky-400: #1390AD;
   --color-slate-400: #A3B0C2;
   --color-slate-700: #1A2433;
   --color-white: #0F172A;

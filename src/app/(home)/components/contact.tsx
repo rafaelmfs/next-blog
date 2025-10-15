@@ -17,7 +17,7 @@ export function Contact({
     <div className="flex flex-col items-center gap-6 md:flex-row justify-between w-full">
       <div className="flex flex-col gap-2">
         <span className="text-sky-400 font-chackra font-bold">Vamos conversar?</span>
-        <strong className="text-slate-700 dark:text-slate-400 font-chackra font-bold text-3xl lg:text-6xl">Entre em contato</strong>
+        <strong className="text-slate-700 dark:text-zinc-200 font-chackra font-bold text-3xl lg:text-6xl">Entre em contato</strong>
       </div>
       <ul className="space-y-3">
         <ConditionalRender
