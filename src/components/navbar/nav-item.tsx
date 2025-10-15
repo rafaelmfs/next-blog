@@ -15,7 +15,7 @@ export function NavItem({ children, ...props }: NavItemProps) {
 
   const isActive = pathname === props.href.toString()
   return (
-    <Link {...props} className={clsx(["font-chackra font-bold text-sm sm:text-base md:text-2xl", isActive ? "text-sky-400" : "text-slate-700 dark:text-slate-600"])}>
+    <Link {...props} className={clsx(["font-chackra font-bold text-sm sm:text-base md:text-2xl", isActive ? "text-sky-400" : "text-slate-700 dark:text-slate-400"])}>
       {children}
     </Link>
   )

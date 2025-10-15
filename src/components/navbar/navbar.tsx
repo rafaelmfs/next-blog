@@ -4,11 +4,15 @@ import { ThemeToggle } from "../theme-toggle";
 import { Logo } from "../logo";
 import { NavItem } from "./nav-item";
 
-export function Navbar({ className, ...props }: ComponentProps<'nav'>) {
+type NavbarProps = ComponentProps<'nav'> & {
+  authorName: string
+}
+
+export function Navbar({ className, authorName, ...props }: NavbarProps) {
 
   return (
     <nav {...props} className={clsx([className, "flex-col md:flex-row flex items-center justify-between w-full"])}>
-      <Logo />
+      <Logo authorName={authorName} />
 
       <div className="flex gap-8 items-center">
         <NavItem href="/">Início</NavItem>

@@ -1,6 +1,12 @@
 import Link from "next/link";
 
-export function Logo() {
+type LogoProps = {
+  authorName: string
+}
+
+export function Logo({
+  authorName
+}: LogoProps) {
   return (
     <Link href="/" className="gap-5 items-center cursor-pointer flex">
       <svg
@@ -18,7 +24,7 @@ export function Logo() {
           d="m30.667 34.5 11.5-11.5-11.5-11.5M15.333 11.5 3.833 23l11.5 11.5"
         ></path>
       </svg>
-      <span className="text-sm whitespace-nowrap sm:text-lg uppercase font-chackra font-bold text-slate-700 dark:text-slate-200 md:text-2xl">FERNANDA MASCHETI</span>
+      <span className="text-sm whitespace-nowrap sm:text-lg uppercase font-chackra font-bold text-slate-700 dark:text-slate-200 md:text-2xl">{authorName}</span>
     </Link>
   )
 };
