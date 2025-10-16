@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next Blog
 
-## Getting Started
+Um blog construído com Next.js 15, apresentando uma interface elegante para exibir posts de blog com funcionalidades avançadas de filtragem, paginação e busca.
 
-First, run the development server:
+## 📋 Sobre o Projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+O projeto inclui funcionalidades como:
+
+- **Listagem de Posts**: Exibição paginada de artigos do blog
+- **Sistema de Categorias**: Filtragem de posts por categorias
+- **Sistema de Tags**: Busca e filtragem por tags
+- **Design Responsivo**: Interface adaptável para diferentes dispositivos
+- **Tema Claro/Escuro**: Alternância entre temas (funcionalidade implementada)
+
+## 🏗️ Estrutura do Projeto
+
+```
+next-blog/
+├── public/                    # Arquivos estáticos
+│   ├── *.svg                  # Ícones SVG
+├── src/
+│   ├── app/                   # App Router do Next.js 15
+│   │   ├── (posts)/          # Grupo de rotas
+│   │   │   ├── blog/         # Páginas do blog
+│   │   │   │   └── [id]/     # Página individual do post
+│   │   │   ├── components/   # Componentes específicos das páginas de posts
+│   │   │   └── hooks/        # Hooks customizados
+│   │   ├── api/              # API Routes
+│   │   │   ├── author/       # Endpoints do autor
+│   │   │   └── posts/        # Endpoints dos posts
+│   │   ├── globals.css       # Estilos globais
+│   │   └── layout.tsx        # Layout principal
+│   ├── components/           # Componentes reutilizáveis
+│   │   ├── navbar/          # Componentes da barra de navegação
+│   │   ├── aspect-ratio.tsx # Componente de proporção
+│   │   ├── avatar.tsx       # Componente de avatar
+│   │   ├── post-card.tsx    # Card de post
+│   │   └── ...
+│   ├── constants/           # Constantes da aplicação
+│   │   ├── categories.ts    # Categorias disponíveis
+│   │   ├── tags.ts          # Tags disponíveis
+│   │   └── ...
+│   ├── protocols/           # Interfaces TypeScript
+│   │   ├── posts-protocol.ts
+│   │   ├── author-protocol.ts
+│   │   └── ...
+│   ├── services/            # Serviços de API
+│   │   ├── api.ts           # Cliente HTTP base
+│   │   ├── posts-api-service.ts
+│   │   ├── author-api-service.ts
+│   │   └── endpoints/      # Definições de endpoints
+│   ├── utils/              # Utilitários
+│   │   ├── get-cookie.ts
+│   │   ├── normalize-string.ts
+│   │   └── set-theme-cookie.ts
+│   └── assets/             # Recursos estáticos
+├── biome.json              # Configuração do Biome (linter/formatter)
+├── next.config.ts          # Configuração do Next.js
+├── package.json            # Dependências do projeto
+├── postcss.config.mjs      # Configuração do PostCSS
+└── tsconfig.json           # Configuração do TypeScript
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Core Framework
+- **Next.js 15.5.5** - Framework React com App Router
+- **React 19.1.0** - Biblioteca de interface de usuário
+- **TypeScript 5** - Tipagem estática para JavaScript
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Estilização
+- **Tailwind CSS 4** - Framework CSS utilitário
 
-## Learn More
+### Componentes UI
+- **Radix UI** - Componentes primitivos acessíveis
+- **Lucide React** - Ícones SVG
 
-To learn more about Next.js, take a look at the following resources:
+### Estado e Navegação
+- **nuqs 2.7.1** - Sincronização de estado com URL
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Utilitários
+- **clsx** - Utilitário para classes CSS condicionais
+- **tailwind-merge** - Merge inteligente de classes Tailwind
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Desenvolvimento
+- **Biome** - Linter e formatter (alternativa ao ESLint/Prettier)
+- **Turbopack** - Bundler otimizado do Next.js
 
-## Deploy on Vercel
+## 🛠️ Como Executar o Projeto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Pré-requisitos
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Certifique-se de ter instalado:
+- **Node.js** (versão 18 ou superior)
+- **npm** ou **yarn**
+
+### 1. Clone o Repositório
+
+```bash
+git clone <url-do-repositorio>
+cd next-blog
+```
+
+### 2. Instale as Dependências
+
+```bash
+npm install
+```
+
+### 3. Configure as Variáveis de Ambiente
+
+Crie uma cópia do arquivo `.env.dist` na raiz do projeto e renomeie como `.env`.
+Caso o projeto não esteja rodando na porta padrão do next que é a 3000, deverá adicionar o endereço correto no `.env` em `NEXT_PUBLIC_ORIGIN` 
+
+```env
+NEXT_PUBLIC_APP_NAME="Nome do Seu Blog"
+NEXT_PUBLIC_ORIGIN=http://localhost:3000
+...
+```
+
+### 4. Execute o Projeto
+
+#### Modo de Desenvolvimento
+```bash
+npm run dev
+```
+
+O projeto estará disponível em [http://localhost:3000](http://localhost:3000)
+
+
+## 📁 Estrutura de Rotas
+
+- `/` - Página inicial com hero, posts recentes e informações de contato
+- `/blog` - Lista completa de posts do blog
+- `/blog/[id]` - Página individual de um post específico.
