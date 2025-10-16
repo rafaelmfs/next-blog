@@ -2,9 +2,28 @@ import { AspectRatio } from "@/components/aspect-ratio";
 import { CategoryBadge } from "@/components/category-badge";
 import { TagBadge } from "@/components/tag-badge";
 import { PostApiServices } from "@/services/posts-api-service";
+import type { Metadata, ResolvingMetadata } from "next";
 import { RelatedPosts } from "./components/related-posts";
 
 const postsApiService = new PostApiServices(false)
+
+const appName = process.env.NEXT_PUBLIC_APP_NAME
+
+export async function generateMetadata(
+  { params }: {
+    params: Promise<{ id: string }>
+  },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const id = (await params).id
+
+  const { post } = await postsApiService.getPostById(id)
+
+  return {
+    title: `${appName} | Post: ${post.title}`,
+    description: post.content,
+  }
+}
 
 export default async function PostDetails({
   params,
@@ -24,7 +43,7 @@ export default async function PostDetails({
   return (
     <div className="space-y-10">
       <div className="space-y-16">
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="gradient-background grid md:grid-cols-2 gap-6">
           <div className="flex flex-col gap-6">
             <strong className="font-bold font-chackra text-2xl md:text-3xl lg:text-5xl text-slate-700 dark:text-zinc-300">
               {post.title}
