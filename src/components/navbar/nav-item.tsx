@@ -13,7 +13,13 @@ type NavItemProps = LinkProps & {
 export function NavItem({ children, ...props }: NavItemProps) {
   const pathname = usePathname()
 
-  const isActive = pathname === props.href.toString()
+  const href = props.href.toString()
+
+  const isRoot = href === "/"
+  const isActive = isRoot
+    ? pathname === "/"
+    : pathname === href || pathname.startsWith(`${href}/`)
+
   return (
     <Link {...props} className={clsx(["font-chackra font-bold text-sm sm:text-base md:text-2xl", isActive ? "text-sky-400" : "text-slate-700 dark:text-slate-400"])}>
       {children}

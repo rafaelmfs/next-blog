@@ -1,4 +1,4 @@
-import clsx from "clsx"
+import { twMerge } from "tailwind-merge"
 
 type CategoryBadgeProps = {
   text: string
@@ -12,7 +12,7 @@ export function CategoryBadge({
   title
 }: CategoryBadgeProps) {
   return (
-    <div title={title} className={clsx([className, "bg-sky-400 text-white max-w-36 px-9 py-2 text-sm flex items-center justify-center font-chackra capitalize"])}>
+    <div title={title} className={twMerge("bg-sky-400 text-white min-w-36 px-9 py-2 text-sm flex items-center justify-center font-chackra capitalize", className)}>
       {text}
     </div>
   )

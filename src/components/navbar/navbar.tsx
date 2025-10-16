@@ -1,7 +1,7 @@
-import clsx from "clsx";
 import type { ComponentProps } from "react";
-import { ThemeToggle } from "../theme-toggle";
+import { twMerge } from "tailwind-merge";
 import { Logo } from "../logo";
+import { ThemeToggle } from "../theme-toggle";
 import { NavItem } from "./nav-item";
 
 type NavbarProps = ComponentProps<'nav'> & {
@@ -11,7 +11,7 @@ type NavbarProps = ComponentProps<'nav'> & {
 export function Navbar({ className, authorName, ...props }: NavbarProps) {
 
   return (
-    <nav {...props} className={clsx([className, "flex-col md:flex-row flex items-center justify-between w-full"])}>
+    <nav {...props} className={twMerge("flex-col md:gap-12 md:flex-row flex items-center justify-between w-full", className)}>
       <Logo authorName={authorName} />
 
       <div className="flex gap-8 items-center">

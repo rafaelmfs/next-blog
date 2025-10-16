@@ -10,7 +10,7 @@ type PostCardProps = {
   title: string
   content: string
   id: string
-  category: CategoriesTypes
+  category: string
 }
 
 const MAX_DISPLAY_CARACTERES_CONTENT = 124
