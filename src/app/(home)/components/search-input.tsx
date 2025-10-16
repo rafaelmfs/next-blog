@@ -12,13 +12,15 @@ import { useEffect, useState } from 'react'
 
 type SearchInputProps = {
   onSelect?: (value: string) => void
+  value: string
 }
 
 export function SearchInput({
   onSelect,
+  value
 }: SearchInputProps) {
   const [open, setOpen] = useState(false)
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState(value)
   const [filtered, setFiltered] = useState(tags)
 
   const debounceDelay = 300
@@ -45,6 +47,12 @@ export function SearchInput({
 
     return () => clearTimeout(handler)
   }, [inputValue, debounceDelay])
+
+  useEffect(() => {
+    if (!value) {
+      setInputValue("")
+    }
+  }, [value])
 
   const renderList = () => filtered.map((item) => (
     <li

@@ -30,6 +30,8 @@
 
   --font-chackra: var(--font-chackra);
   --font-inter: var(--font-inter);
+
+  --shadow-posts-card: 0 4px 16px -2px #1CA7C877;
 }
 
 .dark {
@@ -47,6 +49,7 @@
   --color-white: #0F172A;
 
   --gradient-dark: linear-gradient(90deg, #A47BFF, #27C0E8);
+  --shadow-posts-card: 0 4px 16px -2px #1390AD77;
 }
 
 .gradient-background::before {

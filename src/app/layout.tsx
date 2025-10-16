@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import Image from "next/image";
 import gradient from "@/assets/gradient.png"
 import { AuthorApiService } from "@/services/author-api-service";
+import { NuqsAdapter } from "nuqs/adapters/next";
 
 const fontChackra = Chakra_Petch({
   weight: ['400', '700'],
@@ -42,14 +43,16 @@ export default async function RootLayout({
       <body
         className={`${fontChackra.variable} ${fontInter.variable} antialiased w-full h-screen bg-white relative flex items-center flex-col`}
       >
-        <main className="w-full px-8 md:px-32 py-10 max-w-[1600px] flex flex-col gap-16 items-center">
-          <Navbar authorName={author.name} />
-          {children}
-        </main>
+        <NuqsAdapter>
+          <main className="w-full px-8 md:px-32 py-10 max-w-[1600px] flex flex-col gap-16 items-center">
+            <Navbar authorName={author.name} />
+            {children}
+          </main>
 
-        <footer className="text-slate-400 mt-auto pb-8 px-8 w-full text-center">
-          © Copyright 2025. Produzido por {author.name}
-        </footer>
+          <footer className="text-slate-400 mt-auto pb-8 px-8 w-full text-center">
+            © Copyright 2025. Produzido por {author.name}
+          </footer>
+        </NuqsAdapter>
       </body>
     </html>
   );
